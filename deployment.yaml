@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name: capstone-project
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: capstone
+  template:
+    metadata:
+      name: nginx
+      labels:
+        name: capstone
+    spec:
+      containers:
+      - name: capstone-project
+        image: 583918554465.dkr.ecr.us-east-1.amazonaws.com/capstone-project
+      tolerations:
+        - key: KEY
+          value: "true"
+          effect: NoSchedule
+
